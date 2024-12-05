@@ -8,12 +8,11 @@ const Signup = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await fetch('http://localhost:3001/signup', {
+            const response = await fetch('http://localhost:3000/signup', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ name, password, userType }),
             });
-            console.log(response);
             if (!response.ok) {
                 throw new Error(`Error: ${response.statusText}`);
             }
