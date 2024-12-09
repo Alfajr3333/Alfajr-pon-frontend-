@@ -1,27 +1,30 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const Signup = () => {
     const [name, setName] = useState('');
     const [password, setPassword] = useState('');
     const [userType, setUserType] = useState('');
 
+    const navigate = useNavigate();
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await fetch('https://tropical-striped-feta.glitch.me/signup', {
+            const response = await fetch('http://localhost:3001/signup', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ name, password, userType }),
             });
-            if (!response.ok) {
-                throw new Error(`Error: ${response.statusText}`);
+            if (response.ok) {
+                alert('Signup successful! Please log in.');
+                navigate('/login'); // Redirect to login page
             }
-            const data = await response.json();
-            console.log('Signup successful:', data);
         } catch (error) {
             console.error('Error during signup:', error);
         }
     };
+    
 
     return (
         <form onSubmit={handleSubmit}>

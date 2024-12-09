@@ -1,6 +1,11 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { jwtDecode} from 'jwt-decode';
+
+
 
 function Login() {
+    const navigate = useNavigate();
     const [formData, setFormData] = useState({ name: '', password: '' });
 
     const handleChange = (e) => {
@@ -10,15 +15,31 @@ function Login() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await fetch('https://tropical-striped-feta.glitch.me/login', {
+            const response = await fetch('http://localhost:3001/login', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(formData),
             });
+
             const data = await response.json();
+            console.log('Response data:', data);
+            console.log('Response status:', response.status);
+
             if (data.token) {
+                console.log("hi")
+                // Store token in localStorage
                 localStorage.setItem('token', data.token);
-                alert('Login successful');
+
+                // Decode the token to get userType
+                const decoded = jwtDecode(data.token);
+                const userType = decoded.userType;
+
+                // Redirect based on userType
+                if (userType === 'admin') {
+                    navigate('/admin-home');
+                } else if (userType === 'user') {
+                    navigate('/user-home');
+                }
             } else {
                 alert(data.message);
             }
