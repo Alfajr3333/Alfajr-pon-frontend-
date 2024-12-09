@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/Alfajr-pon-frontend-/static/css/main.e6c13ad2.css",
-    "main.js": "/Alfajr-pon-frontend-/static/js/main.a95023a8.js",
+    "main.js": "/Alfajr-pon-frontend-/static/js/main.b9ad30c2.js",
     "static/js/453.8ab44547.chunk.js": "/Alfajr-pon-frontend-/static/js/453.8ab44547.chunk.js",
     "index.html": "/Alfajr-pon-frontend-/index.html",
     "main.e6c13ad2.css.map": "/Alfajr-pon-frontend-/static/css/main.e6c13ad2.css.map",
-    "main.a95023a8.js.map": "/Alfajr-pon-frontend-/static/js/main.a95023a8.js.map",
+    "main.b9ad30c2.js.map": "/Alfajr-pon-frontend-/static/js/main.b9ad30c2.js.map",
     "453.8ab44547.chunk.js.map": "/Alfajr-pon-frontend-/static/js/453.8ab44547.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.e6c13ad2.css",
-    "static/js/main.a95023a8.js"
+    "static/js/main.b9ad30c2.js"
   ]
 }
